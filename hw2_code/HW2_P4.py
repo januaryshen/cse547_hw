@@ -16,14 +16,14 @@ Q = np.diag(np.diag(data.T.dot(data)))
 
 # user-user
 RecU = np.divide(1, np.sqrt(P), where = np.sqrt(P)!= 0).dot(data).dot(data.T).dot(np.divide(1, np.sqrt(P), where = np.sqrt(P)!= 0)).dot(data)
-AlexU = RecU[499, 0:99]
+AlexU = RecU[499, 0:100]
 AlexU_Index = AlexU.argsort()[-5:][::-1]
 for i in AlexU_Index:
     print(movies[i], "\n Similarity = %.2f" % AlexU[i])
 
 # item-item
 RecI = data.dot(np.divide(1, np.sqrt(Q), where = np.sqrt(Q)!= 0)).dot(data.T).dot(data).dot(np.divide(1, np.sqrt(Q), where = np.sqrt(Q)!= 0))
-AlexI = RecI[499, 0:99]
+AlexI = RecI[499, 0:100]
 AlexI_Index = AlexI.argsort()[-5:][::-1]
 for i in AlexI_Index:
     print(movies[i], "\n Similarity = %.2f" % AlexI[i])
