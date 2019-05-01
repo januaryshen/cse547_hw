@@ -105,7 +105,9 @@ for i in target_image:
     counter += 1
     plt.imshow(img, cmap = 'gray')
     for j in k_list:
-        img = np.multiply(data[i-1],(v[:,j-1].T)).astype(np.float).reshape(84,96)
+        vec = v[:,0:j]
+        vec = vec.dot(vec.T)
+        img = vec.dot(data[i-1].T).astype(np.float).reshape(84,96)
         img = ndimage.rotate(img, 270)
         fig.add_subplot(rows, columns, counter)
         counter += 1
