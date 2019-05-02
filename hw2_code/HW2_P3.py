@@ -42,7 +42,9 @@ for i in range(iteration):
         error_sum = error_sum + pow(P,2).sum() + pow(Q,2).sum()
     error_list_01.append(error_sum)
 
-plt.plot(error_list_01)
+plt.plot(error_list_01, color = "green")
+plt.xlabel("Number of iteration")
+plt.ylabel("Error")
 plt.show()
 
 
